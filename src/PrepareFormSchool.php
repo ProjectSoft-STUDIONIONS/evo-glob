@@ -70,23 +70,23 @@ class PrepareFormSchool {
 			),
 			"parse_mode"	=> "Markdown",
 			"bot_token"		=> $modx->config["bot_token"],
-			"chat_id"		=> $modx->config["tlg_chanel"]
+			"chat_id"		=> $modx->config["tlg_"]
 		);
 		
 		$bot = new \ProjectSoft\SendBot($arr);
 		$result = $bot->send();
-		file_put_contents('0001-result.txt', print_r($result, true));
+		//file_put_contents('0001-result.txt', print_r($result, true));
 		$json = json_decode($result);
 		if(is_object($json)):
 			if(!$json->ok):
 				$fl->setFormStatus(false);
 				$fl->addMessage($json->description);
-				//$fl->setFormStatus(false);
+				$fl->setFormStatus(false);
 			endif;
 		else:
 			$fl->setFormStatus(false);
 			$fl->addMessage($result);
-			//$fl->setFormStatus(false);
+			$fl->setFormStatus(false);
 		endif;
 	}
 }

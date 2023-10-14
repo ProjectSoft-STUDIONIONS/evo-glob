@@ -72,6 +72,6 @@ class PrepareForm {
 			),
 			"parse_mode" => "Markdown",
 		);
-		$modx->invokeEvent('onSendBot', $arr);
+		$modx->invokeEvent('ОnSendBot', $arr);
 	}
 }
